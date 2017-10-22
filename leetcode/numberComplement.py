@@ -1,8 +1,9 @@
 def numberComplement(x):
-	i = 1
-	while(i<=x):
-		i = i<<1
-	return (i-1)^x
+	all = 0
+	for i in range(len(x)-2):
+		all = all+2**i
+	return all^int(x,2)
 
-print(numberComplement(1))
+print(numberComplement(bin(1)))
+
 

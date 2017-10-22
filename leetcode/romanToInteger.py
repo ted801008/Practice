@@ -1,17 +1,12 @@
-romanList = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
-def romantointeger(x):
-	roman = [i for i in x]
-	length = len(roman)-1
-	Sum = 0
-	while length>=0:
-		if(length-1>=0):
-			if(romanList[roman[length]]>romanList[roman[length-1]]):
-				Sum += (romanList[roman[length]]-romanList[roman[length-1]])
-			else:
-				Sum += (romanList[roman[length]]+romanList[roman[length-1]])
-			length-=2
+def romanToInteger(str):
+	roman = {'M': 1000,'D': 500 ,'C': 100,'L': 50,'X': 10,'V': 5,'I': 1}
+	z = 0
+	for i in range(0,len(str)-1):
+		if(roman[str[i]]<roman[str[i+1]]):
+			z-=roman[str[i]]
 		else:
-			Sum+=romanList[roman[length]]
-			length-=1
-	return Sum
-print(romantointeger("MCMLXX"))
+			z+=roman[str[i]]
+	return z+roman[str[-1]]
+
+x = "III"
+print(romanToInteger(x))

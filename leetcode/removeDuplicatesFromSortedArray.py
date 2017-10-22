@@ -1,12 +1,9 @@
-def removeDuplicatesFromSortedArray(x):
-	length = len(x)-1
-	count = 0
-	while length>=0:
-		if (x[length]==x[length-1]):
+def removeDuplicatesFromSortedArray(data):
+	length = len(data)
+	for i in range(length-1):
+		if(data[i]==data[i+1]):
 			length-=1
-		else:
-			count+=1
-			length-=1
-	return count
+	return length
 
-print(removeDuplicatesFromSortedArray([1,1,2,2,3,4,4]))
+print(removeDuplicatesFromSortedArray([1,1,2]))
+
